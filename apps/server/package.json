@@ -1,0 +1,12 @@
+{
+	"name": "@repo/server",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "bun --hot src/index.ts"
+	},
+	"dependencies": {
+		"hono": "^4.6.12",
+		"@repo/db": "workspace:*"
+	}
+}
