@@ -8,6 +8,27 @@
       "when": 1754598009680,
       "tag": "0000_chemical_fixer",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1754820586854,
+      "tag": "0001_unusual_taskmaster",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1754824410386,
+      "tag": "0002_simple_wiccan",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1754855085119,
+      "tag": "0003_secret_lenny_balinger",
+      "breakpoints": true
     }
   ]
 }

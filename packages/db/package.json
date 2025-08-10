@@ -19,7 +19,6 @@
 		"typescript": "^5"
 	},
 	"dependencies": {
-		"dotenv": "^17.2.1",
 		"drizzle-orm": "^0.44.4",
 		"postgres": "^3.4.7"
 	}
