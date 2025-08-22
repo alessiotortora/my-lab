@@ -7,16 +7,18 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@repo/ui/components/card";
+import { useRouter } from "next/navigation";
 import { authClient, useSession } from "../../lib/auth-client";
 
 export default function Dashboard() {
-	const { data: session, isPending } = useSession();
+	const { data: session, isPending, error, refetch } = useSession();
+	const router = useRouter();
 
 	const handleSignOut = async () => {
 		await authClient.signOut({
 			fetchOptions: {
 				onSuccess: () => {
-					window.location.href = "/login";
+					router.push("/login");
 				},
 			},
 		});
@@ -44,10 +46,7 @@ export default function Dashboard() {
 						<p className="mb-4 text-gray-600 text-sm">
 							You need to be logged in to access this page.
 						</p>
-						<Button
-							onClick={() => (window.location.href = "/login")}
-							className="w-full"
-						>
+						<Button onClick={() => router.push("/login")} className="w-full">
 							Go to Login
 						</Button>
 					</CardContent>
