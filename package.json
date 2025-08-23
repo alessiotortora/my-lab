@@ -4,14 +4,17 @@
 	"scripts": {
 		"build": "turbo run build",
 		"dev": "turbo run dev",
-		"lint": "turbo run lint",
+		"lint": "biome check .",
+		"lint:fix": "biome check --write .",
 		"format": "biome format --write",
 		"check-types": "turbo run check-types",
-		"env:load": "node -r dotenv/config"
+		"env:load": "node -r dotenv/config",
+		"prepare": "lefthook install"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.1.3",
 		"dotenv": "^17.2.1",
+		"lefthook": "^1.12.3",
 		"turbo": "^2.5.5",
 		"typescript": "5.8.3"
 	},
