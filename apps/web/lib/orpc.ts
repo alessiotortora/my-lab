@@ -5,10 +5,7 @@ import { createTanstackQueryUtils } from "@orpc/tanstack-query";
 import type { AppRouter } from "@repo/api";
 
 const link = new RPCLink({
-	url: process.env.NEXT_PUBLIC_API_URL
-		? `${process.env.NEXT_PUBLIC_API_URL}/rpc`
-		: "http://localhost:4000/rpc",
-	// include cookies while dev is 3000 -> 4000
+	url: "http://localhost:3000/rpc",
 	fetch: (input, init) => fetch(input, { ...init, credentials: "include" }),
 });
 

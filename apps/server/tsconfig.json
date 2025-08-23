@@ -6,7 +6,11 @@
 		"target": "ES2022",
 		"strict": true,
 		"skipLibCheck": true,
-		"jsx": "react-jsx"
+		"jsx": "react-jsx",
+		"declaration": false,
+		"declarationMap": false,
+		"composite": false,
+		"noEmit": true
 	},
 	"include": ["src"]
 }

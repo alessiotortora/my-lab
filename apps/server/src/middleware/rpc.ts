@@ -1,6 +1,5 @@
 import { RPCHandler } from "@orpc/server/fetch";
 import { type AppContext, router } from "@repo/api";
-import { db, postsTable, user } from "@repo/db";
 import type { Context, Next } from "hono";
 import { auth } from "../auth";
 
@@ -21,22 +20,17 @@ function createRPCHandler() {
 	// Create one handler instance (can reuse)
 	const handler = new RPCHandler(router);
 	return async (request: Request) => {
-		// per-request context: fetch session & pass db/tables
+		// per-request context: fetch session & pass user
 		const session = await auth.api.getSession({ headers: request.headers });
 		return handler.handle(request, {
 			prefix: "/rpc",
 			context: {
-				db,
 				user: session?.user
 					? {
 							...session.user,
 							image: session.user.image ?? null,
 						}
 					: null,
-				tables: {
-					posts: postsTable,
-					users: user,
-				},
 			} satisfies AppContext,
 		});
 	};

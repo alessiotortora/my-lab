@@ -1,1 +1,1 @@
-export { base, requireAuth } from "./auth";
+export { protectedProcedure, publicProcedure } from "./auth";

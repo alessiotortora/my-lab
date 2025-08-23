@@ -1,61 +1,60 @@
-import { and, eq } from "drizzle-orm";
+import { and, db, eq, postsTable } from "@repo/db";
 import * as z from "zod";
-import { base, requireAuth } from "../middleware";
-
-export const listPosts = base.handler(async ({ context }) => {
-	const { db, tables } = context;
-	const rows = await db.select().from(tables.posts);
-	return rows;
-});
-
-export const createPost = requireAuth
-	.input(
-		z.object({
-			title: z.string().min(1, "Title is required"),
-			body: z.string().min(1, "Body is required"),
-		}),
-	)
-	.handler(async ({ context, input }) => {
-		const { db, tables, user } = context;
-		const [row] = await db
-			.insert(tables.posts)
-			.values({
-				userId: user?.id || "",
-				title: input.title,
-				content: input.body,
-			})
-			.returning();
-		return row;
-	});
-
-export const deletePost = requireAuth
-	.input(
-		z.object({
-			id: z.number().int().positive("Post ID must be a positive integer"),
-		}),
-	)
-	.handler(async ({ context, input }) => {
-		const { db, tables, user } = context;
-		const [deletedRow] = await db
-			.delete(tables.posts)
-			.where(
-				// Only allow users to delete their own posts
-				and(
-					eq(tables.posts.id, input.id),
-					eq(tables.posts.userId, user?.id || ""),
-				),
-			)
-			.returning();
-
-		if (!deletedRow) {
-			return Promise.reject(new Error("Post not found or not authorized"));
-		}
-
-		return deletedRow;
-	});
+import { protectedProcedure, publicProcedure } from "../middleware";
 
 export const postsRouter = {
-	list: listPosts,
-	create: createPost,
-	delete: deletePost,
+	list: publicProcedure.handler(async () => {
+		return await db.select().from(postsTable);
+	}),
+
+	create: protectedProcedure
+		.input(
+			z.object({
+				title: z.string().min(1, "Title is required"),
+				body: z.string().min(1, "Body is required"),
+			}),
+		)
+		.handler(async ({ context, input }) => {
+			const [row] = await db
+				.insert(postsTable)
+				.values({
+					userId: context.user?.id || "",
+					title: input.title,
+					content: input.body,
+				})
+				.returning();
+			return row;
+		}),
+
+	delete: protectedProcedure
+		.input(
+			z.object({
+				id: z.number().int().positive("Post ID must be a positive integer"),
+			}),
+		)
+		.handler(async ({ context, input }) => {
+			// First check if the post exists and belongs to the user
+			const existingPost = await db
+				.select()
+				.from(postsTable)
+				.where(
+					and(
+						eq(postsTable.id, input.id),
+						eq(postsTable.userId, context.user?.id || ""),
+					),
+				)
+				.limit(1);
+
+			if (!existingPost.length) {
+				throw new Error("Post not found or not authorized");
+			}
+
+			// Delete the post
+			const [deletedRow] = await db
+				.delete(postsTable)
+				.where(eq(postsTable.id, input.id))
+				.returning();
+
+			return deletedRow;
+		}),
 };

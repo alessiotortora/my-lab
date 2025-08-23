@@ -5,7 +5,7 @@ import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { openAPI } from "better-auth/plugins";
 import { sendVerificationEmail } from "./utils/email";
 
-export const auth: ReturnType<typeof betterAuth> = betterAuth({
+export const auth = betterAuth({
 	baseURL: process.env.BETTER_AUTH_URL || "http://localhost:4000",
 	secret: process.env.BETTER_AUTH_SECRET || "your-secret-key",
 	database: drizzleAdapter(db, {
