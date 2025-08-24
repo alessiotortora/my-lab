@@ -5,7 +5,7 @@ import { orpcQuery } from "@/lib/orpc";
 
 type Post = {
 	title: string;
-	body: string;
+	content: string;
 	id: number;
 };
 
@@ -59,7 +59,7 @@ export function PostsList() {
 						>
 							<div className="flex-1">
 								<h3 className="font-semibold">{post.title}</h3>
-								<p className="text-gray-600">{post.body}</p>
+								<p className="text-gray-600">{post.content}</p>
 							</div>
 							<button
 								type="button"

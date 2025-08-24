@@ -9,7 +9,7 @@ import {
 import { Input } from "@repo/ui/components/input";
 import { Label } from "@repo/ui/components/label";
 import { cn } from "@repo/ui/lib/utils";
-import { useState } from "react";
+import { useId, useState } from "react";
 import { authClient, sendVerificationEmail } from "../lib/auth-client";
 
 export function LoginForm({
@@ -24,6 +24,11 @@ export function LoginForm({
 	const [error, setError] = useState("");
 	const [verificationEmailSent, setVerificationEmailSent] = useState(false);
 	const [isResendingEmail, setIsResendingEmail] = useState(false);
+
+	// Generate unique IDs for form elements
+	const nameId = useId();
+	const emailId = useId();
+	const passwordId = useId();
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
@@ -181,9 +186,9 @@ export function LoginForm({
 
 								{isSignUp && (
 									<div className="grid gap-3">
-										<Label htmlFor="name">Name</Label>
+										<Label htmlFor={nameId}>Name</Label>
 										<Input
-											id="name"
+											id={nameId}
 											type="text"
 											placeholder="John Doe"
 											value={name}
@@ -194,9 +199,9 @@ export function LoginForm({
 								)}
 
 								<div className="grid gap-3">
-									<Label htmlFor="email">Email</Label>
+									<Label htmlFor={emailId}>Email</Label>
 									<Input
-										id="email"
+										id={emailId}
 										type="email"
 										placeholder="m@example.com"
 										value={email}
@@ -207,7 +212,7 @@ export function LoginForm({
 
 								<div className="grid gap-3">
 									<div className="flex items-center">
-										<Label htmlFor="password">Password</Label>
+										<Label htmlFor={passwordId}>Password</Label>
 										{!isSignUp && (
 											<button
 												type="button"
@@ -218,7 +223,7 @@ export function LoginForm({
 										)}
 									</div>
 									<Input
-										id="password"
+										id={passwordId}
 										type="password"
 										value={password}
 										onChange={(e) => setPassword(e.target.value)}
