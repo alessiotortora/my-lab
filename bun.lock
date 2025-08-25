@@ -8,7 +8,7 @@
         "dotenv": "^17.2.1",
         "lefthook": "^1.12.3",
         "turbo": "^2.5.5",
-        "typescript": "5.8.3",
+        "typescript": "^5",
       },
     },
     "apps/server": {
@@ -35,7 +35,6 @@
       "dependencies": {
         "@orpc/client": "^1.7.11",
         "@orpc/tanstack-query": "^1.7.11",
-        "@radix-ui/react-slot": "^1.2.3",
         "@repo/ui": "*",
         "@tanstack/react-query": "^5.84.2",
         "better-auth": "^1.3.4",
@@ -49,10 +48,10 @@
         "@repo/typescript-config": "*",
         "@tailwindcss/postcss": "^4.0.8",
         "@types/node": "^22.15.3",
-        "@types/react": "19.1.0",
-        "@types/react-dom": "19.1.1",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
         "tailwindcss": "^4.0.8",
-        "typescript": "5.8.2",
+        "typescript": "^5",
       },
     },
     "packages/api": {
@@ -103,10 +102,10 @@
         "@tailwindcss/postcss": "^4.0.8",
         "@turbo/gen": "^2.5.0",
         "@types/node": "^22.15.3",
-        "@types/react": "^19.1.0",
-        "@types/react-dom": "^19.1.1",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
         "tailwindcss": "^4.0.8",
-        "typescript": "^5.8.2",
+        "typescript": "^5",
       },
     },
   },
@@ -1298,10 +1297,6 @@
     "sharp/semver": ["semver@7.7.2", "", { "bin": { "semver": "bin/semver.js" } }, "sha512-RF0Fw+rO5AMf9MAyaRXI4AV0Ulj5lMHqVxxdSgiVbixSCXoEmmX/jk0CuJw4+3SqroYO9VoUh+HcuJivvtJemA=="],
 
     "tar/mkdirp": ["mkdirp@3.0.1", "", { "bin": { "mkdirp": "dist/cjs/src/bin.js" } }, "sha512-+NsyUUAZDmo6YVHzL/stxSu3t9YS1iljliy3BSDrXJ/dkn1KYdmtZODGGjLcc9XLgVVpH4KshHB8XmZgMhaBXg=="],
-
-    "web/@types/react": ["@types/react@19.1.0", "", { "dependencies": { "csstype": "^3.0.2" } }, "sha512-UaicktuQI+9UKyA4njtDOGBD/67t8YEBt2xdfqu8+gP9hqPUPsiXlNPcpS2gVdjmis5GKPG3fCxbQLVgxsQZ8w=="],
-
-    "web/typescript": ["typescript@5.8.2", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-aJn6wq13/afZp/jT9QZmwEjDqqvSGp1VT5GVg+f/t6/oVyrgXM6BY1h9BRh/O5p3PlUPAe+WuiEZOmb/49RqoQ=="],
 
     "@esbuild-kit/core-utils/esbuild/@esbuild/android-arm": ["@esbuild/android-arm@0.18.20", "", { "os": "android", "cpu": "arm" }, "sha512-fyi7TDI/ijKKNZTUJAQqiG5T7YjJXgnzkURqmGj13C6dCqckZBLdl4h7bkhHt/t0WP+zO9/zwroDvANaOqO5Sw=="],
 
