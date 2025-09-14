@@ -1,0 +1,50 @@
+{
+	"name": "web-tanstack",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev --port 3001",
+		"start": "node .output/server/index.mjs",
+		"build": "vite build",
+		"serve": "vite preview",
+		"test": "vitest run",
+		"lint": "biome check .",
+		"check-types": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@orpc/client": "^1.8.8",
+		"@orpc/tanstack-query": "^1.8.8",
+		"@repo/api": "*",
+		"@repo/ui": "*",
+		"@tailwindcss/postcss": "^4.1.13",
+		"@tailwindcss/vite": "^4.1.13",
+		"@tanstack/react-devtools": "^0.2.2",
+		"@tanstack/react-query": "^5.87.4",
+		"@tanstack/react-query-devtools": "^5.87.4",
+		"@tanstack/react-router": "^1.131.41",
+		"@tanstack/react-router-devtools": "^1.131.42",
+		"@tanstack/react-router-ssr-query": "^1.131.41",
+		"@tanstack/react-start": "^1.131.43",
+		"@tanstack/router-plugin": "^1.131.43",
+		"better-auth": "^1.3.9",
+		"postcss": "^8.5.6",
+		"react": "^19.1.1",
+		"react-dom": "^19.1.1",
+		"react-scan": "^0.4.3",
+		"tailwindcss": "^4.1.13",
+		"vite-tsconfig-paths": "^5.1.4"
+	},
+	"devDependencies": {
+		"@repo/typescript-config": "*",
+		"@testing-library/dom": "^10.4.1",
+		"@testing-library/react": "^16.3.0",
+		"@types/react": "^19.1.13",
+		"@types/react-dom": "^19.1.9",
+		"@vitejs/plugin-react": "^4.7.0",
+		"jsdom": "^26.1.0",
+		"typescript": "^5.9.2",
+		"vite": "^6.3.6",
+		"vitest": "^3.2.4",
+		"web-vitals": "^4.2.4"
+	}
+}
