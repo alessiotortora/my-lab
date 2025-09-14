@@ -1,3 +1,4 @@
+import type { SelectPost } from "@repo/db";
 import { Button } from "@repo/ui/components/button";
 import {
 	Card,
@@ -74,7 +75,7 @@ function ApiDemo() {
 									</p>
 									{posts.length > 0 ? (
 										<div className="space-y-2">
-											{posts.map((post: any) => (
+											{posts.map((post: SelectPost) => (
 												<div key={post.id} className="rounded-md border p-3">
 													<h4 className="font-medium">{post.title}</h4>
 													<p className="text-muted-foreground text-sm">

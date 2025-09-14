@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 import { authClient, useSession } from "../../lib/auth-client";
 
 export default function Dashboard() {
-	const { data: session, isPending, error, refetch } = useSession();
+	const { data: session, isPending } = useSession();
 	const router = useRouter();
 
 	const handleSignOut = async () => {
