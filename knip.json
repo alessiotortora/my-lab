@@ -1,0 +1,144 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "workspaces": {
+    ".": {
+      "entry": [
+        "apps/*/src/**/*.{js,ts,tsx}",
+        "packages/*/src/**/*.{js,ts,tsx}",
+        "apps/*/app/**/*.{js,ts,tsx}",
+        "apps/*/pages/**/*.{js,ts,tsx}",
+        "apps/*/components/**/*.{js,ts,tsx}",
+        "apps/*/lib/**/*.{js,ts,tsx}",
+        "apps/*/utils/**/*.{js,ts,tsx}",
+        "apps/*/hooks/**/*.{js,ts,tsx}",
+        "apps/*/routes/**/*.{js,ts,tsx}",
+        "apps/*/scripts/**/*.{js,ts,tsx}",
+        "apps/*/src/**/*.{js,ts,tsx}",
+        "packages/*/src/**/*.{js,ts,tsx}"
+      ],
+      "project": [
+        "apps/*/src/**/*.{js,ts,tsx}",
+        "packages/*/src/**/*.{js,ts,tsx}",
+        "apps/*/app/**/*.{js,ts,tsx}",
+        "apps/*/pages/**/*.{js,ts,tsx}",
+        "apps/*/components/**/*.{js,ts,tsx}",
+        "apps/*/lib/**/*.{js,ts,tsx}",
+        "apps/*/utils/**/*.{js,ts,tsx}",
+        "apps/*/hooks/**/*.{js,ts,tsx}",
+        "apps/*/routes/**/*.{js,ts,tsx}",
+        "apps/*/scripts/**/*.{js,ts,tsx}",
+        "apps/*/content/**/*.{md,mdx}",
+        "apps/*/public/**/*",
+        "packages/*/src/**/*.{js,ts,tsx}",
+        "packages/*/migrations/**/*.sql",
+        "packages/*/drizzle.config.ts"
+      ]
+    },
+    "apps/docs": {
+      "entry": [
+        "src/app/**/*.{js,ts,tsx}",
+        "scripts/**/*.{js,ts,tsx}",
+        "next.config.mjs",
+        "source.config.ts"
+      ],
+      "project": [
+        "src/**/*.{js,ts,tsx}",
+        "content/**/*.{md,mdx}",
+        "scripts/**/*.{js,ts,tsx}",
+        "next.config.mjs",
+        "source.config.ts",
+        "postcss.config.mjs"
+      ]
+    },
+    "apps/server": {
+      "entry": [
+        "src/index.ts",
+        "src/app.ts"
+      ],
+      "project": [
+        "src/**/*.{js,ts,tsx}",
+        "drizzle.config.ts"
+      ]
+    },
+    "apps/web": {
+      "entry": [
+        "app/**/*.{js,ts,tsx}",
+        "components/**/*.{js,ts,tsx}",
+        "lib/**/*.{js,ts,tsx}",
+        "hooks/**/*.{js,ts,tsx}",
+        "utils/**/*.{js,ts,tsx}",
+        "next.config.ts"
+      ],
+      "project": [
+        "app/**/*.{js,ts,tsx}",
+        "components/**/*.{js,ts,tsx}",
+        "lib/**/*.{js,ts,tsx}",
+        "hooks/**/*.{js,ts,tsx}",
+        "utils/**/*.{js,ts,tsx}",
+        "next.config.ts",
+        "postcss.config.mjs",
+        "components.json"
+      ]
+    },
+    "apps/web-start": {
+      "entry": [
+        "src/router.tsx",
+        "src/routes/**/*.{js,ts,tsx}",
+        "vite.config.ts"
+      ],
+      "project": [
+        "src/**/*.{js,ts,tsx}",
+        "vite.config.ts",
+        "components.json"
+      ]
+    },
+    "packages/api": {
+      "entry": [
+        "src/index.ts"
+      ],
+      "project": [
+        "src/**/*.{js,ts,tsx}"
+      ]
+    },
+    "packages/db": {
+      "entry": [
+        "src/index.ts",
+        "drizzle.config.ts"
+      ],
+      "project": [
+        "src/**/*.{js,ts,tsx}",
+        "migrations/**/*.sql",
+        "drizzle.config.ts"
+      ]
+    },
+    "packages/ui": {
+      "entry": [
+        "src/components/**/*.{js,ts,tsx}",
+        "src/lib/**/*.{js,ts,tsx}",
+        "src/hooks/**/*.{js,ts,tsx}"
+      ],
+      "project": [
+        "src/**/*.{js,ts,tsx}",
+        "components.json",
+        "postcss.config.mjs"
+      ]
+    }
+  },
+  "ignore": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/.next/**",
+    "**/coverage/**",
+    "**/migrations/**",
+    "**/routeTree.gen.ts",
+    "**/openapi-spec.json",
+    "**/tsconfig.tsbuildinfo"
+  ],
+  "ignoreDependencies": [
+    "@types/mdx",
+    "@tailwindcss/postcss",
+    "tailwindcss",
+    "postcss"
+  ]
+}

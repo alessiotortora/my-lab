@@ -22,6 +22,10 @@
 		},
 		"migrate": {
 			"inputs": ["$TURBO_DEFAULT$", ".env*"]
+		},
+		"e2e": {
+			"dependsOn": ["^build"],
+			"passThroughEnv": ["PLAYWRIGHT_*"]
 		}
 	}
 }

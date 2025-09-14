@@ -9,11 +9,17 @@
 		"format": "biome format --write",
 		"check-types": "turbo run check-types",
 		"env:load": "node -r dotenv/config",
-		"prepare": "lefthook install"
+		"prepare": "lefthook install",
+		"knip": "knip",
+		"test": "turbo run e2e",
+		"test:web": "turbo run e2e --filter=web",
+		"test:web-start": "turbo run e2e --filter=web-tanstack",
+		"test:ci": "CI=1 turbo run e2e"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.2.4",
 		"dotenv": "^17.2.2",
+		"knip": "^5.63.1",
 		"lefthook": "^1.13.0",
 		"turbo": "^2.5.6",
 		"typescript": "^5.9.2"
